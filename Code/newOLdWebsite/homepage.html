@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaSentinel</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .background {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #3795e8 0%, #7700d9 100%);
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    padding-top: 60px;
+  }
+
+ /* Original horizontal movement animation */
+@keyframes moveWaveHorizontal {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 1000px;
+  }
+}
+
+/* New vertical movement animation */
+@keyframes moveWaveVertical {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* Moves up by 20px */
+  }
+}
+
+.wave {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0 C 150,100 350,0 500,0 C 650,100 850,100 1000,50 C 1150,0 1200,0 1200,0 L 1200,150 L 0,150" fill="white"/></svg>') repeat-x;
+  background-size: cover;
+  z-index: 1;
+  animation: moveWaveHorizontal 30s linear infinite, moveWaveVertical 5s ease-in-out infinite; /* Apply both animations */
+}
+
+  
+  .loginbracket {
+    background-color: #fff; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    text-align: center;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    position: relative;
+    z-index: 2; /* Ensure loginbracket is above the wave */
+  }
+  h2 {
+    color: #3498db;
+  }
+  .login-button {
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-image 0.3s;
+    background-image: linear-gradient(to bottom right, #60abdd, #0d659f);
+    color: #fff;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-button:hover {
+    background-image: linear-gradient(to bottom right, #2980b9, #3498db);
+  }
+  
+  .dam-icon {
+    font-size: 50px;
+    color: #3498db;
+    margin-bottom: 20px;
+  }
+  /* Responsive styling for smaller screens */
+  @media (max-width: 600px) {
+    .loginbracket {
+      width: 80%;
+    }
+  }
+
+  h2 span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  @keyframes jump {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+
+</style>
+</head>
+<body>
+
+<div class="background">
+    <div class="loginbracket">
+        <span class="dam-icon">🌊</span>
+        <h2>
+          <span>S</span><span>m</span><span>a</span><span>r</span><span>t</span> 
+          <span>D</span><span>a</span><span>m</span> 
+          <span>S</span><span>y</span><span>s</span><span>t</span><span>e</span><span>m</span>
+        </h2>
+        
+        <button class="login-button" onclick="loginAsAdmin()">Admin</button>
+        <button class="login-button" onclick="loginAsGuest()">Guest</button>
+    </div>
+    <div class="wave"></div>
+</div>
+<script>
+  document.querySelector('h2').addEventListener('mouseover', function() {
+    this.querySelectorAll('span').forEach((element, index) => {
+      element.style.animation = '';
+      setTimeout(() => {
+        element.style.animation = 'jump 0.6s ease';
+      }, index * 100); // Adjust the delay as needed
+    });
+  });
+
+  document.querySelector('h2').addEventListener('mouseout', function() {
+    this.querySelectorAll('span').forEach((element, index) => {
+      element.style.animation = '';
+    });
+  });
+</script>
+
+</body>
+</html>

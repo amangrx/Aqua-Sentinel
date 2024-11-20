@@ -1,0 +1,49 @@
+color code
+front		back		name
+white		black		gnd	US
+black		orange		echo	US
+white		purple		trig	US
+white		blue-purple	VCC 	US
+
+NA		red		VCC 	LCD	
+NA		yellow		gnd	LCD
+NA		green 		a4	LCD	
+NA		blue		a5	LCD
+
+brown		black		gnd	servoDam
+red		brown		VCC	servoDam
+yellow		red		pin	servoDam
+
+green		blue		pin	led
+blue		purple		gnd	led
+
+white		green		gnd	buzzer
+black		yellow		pin	buzzer
+
+brown		orange		gnd	rightservo
+red		purple		vcc	rightservo
+yellow		white		pin	rightservo
+
+yellow		white		pin 	leftservo
+red		green		vcc	leftservo
+brown		brown		gnd	leftservo
+
+blue		black		gnd 	agrirelay
+white		blue		vcc	agrirelay
+yellow		brown		pin	agrirelay
+ 
+black		purple		a0	waterSensor
+purple		green		gnd	waterSensor
+green		orange		vcc	waterSensor
+
+white		brown		gnd	agrirelay
+orange		white		pin	agrirelay
+black		yellow		vcc	agrirelay
+
+red 		white		A1	soilsensor		
+purple		orange		gnd	soilsensor
+purple		red		vcc	soilsensor
+
+blue		2
+purple		5
+green		7
